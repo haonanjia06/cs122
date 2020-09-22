@@ -1,3 +1,5 @@
+package com.cs122.classlabs.Chapter10;
+
 //********************************************************************
 //  Searching.java       Author: Lewis/Loftus
 //
