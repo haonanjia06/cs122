@@ -1,0 +1,16 @@
+haonanjia
+10.3
+The abstract method purchase is established in the Sale class, ensuring that child
+classes will implement it. That way, each class can have a definition of purchase that
+makes sense for it, as opposed to the computeTax method, which is implemented in
+Sale and used by all child classes as is. A program that manages the sales transactions
+as they occur could then conduct the transaction by making a polymorphic call to
+purchase no matter what the transaction type is.
+
+
+10.4
+By defining the pay method in StaffMember, all child classes must implement it (or be
+abstract themselves). So if pay were not defined in StaffMember, the child classes
+would not have to implement it and the ability to pay all staff members through a
+polymorphic reference would not exist. It is only by formally establishing that all children
+of StaffMember have a pay method that makes it safe to pay them all.
