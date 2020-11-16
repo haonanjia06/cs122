@@ -1,0 +1,45 @@
+package haonanjia;
+
+public class Novel extends Book
+{
+    protected String[] characters;
+
+
+    public Novel(String thisTitle, String isbnNum, String auth,
+            String[] chars)
+    {
+        super(thisTitle, isbnNum, auth);
+        characters = chars;
+    }
+
+
+    public void setCharacters(String[] chars)
+    {
+        characters = chars;
+    }
+
+   
+    public String[] getCharacters()
+    {
+        return characters;
+    }
+
+
+    public String toString()
+    {
+        String result = super.toString();
+
+        for (int index = 0; index < characters.length; index++)
+            result += "\n" + characters[index];
+
+        return result;
+    }
+
+    
+    public void content()
+    {
+        super.content();
+        for (int index = 0; index < characters.length; index++)
+            System.out.println (characters[index]);
+    }
+}
