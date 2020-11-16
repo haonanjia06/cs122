@@ -1,0 +1,43 @@
+package haonanjia;
+
+public class TextBook extends Book
+{
+    protected boolean answers;  
+
+
+    public TextBook(String thisTitle, String isbnNum, String auth,
+            boolean ans)
+    {
+        super(thisTitle, isbnNum, auth);
+        answers = ans;
+    }
+
+
+    public void setAnswers(boolean ans)
+    {
+        answers = ans;
+    }
+
+
+    public boolean getAnswers()
+    {
+        return answers;
+    }
+
+  
+    public String toString()
+    {
+        String result = super.toString();
+        if (!answers)
+            result += "no ";
+        result += "answers given";
+        return result;
+    }
+
+
+    public void content()
+    {
+        super.content();
+        System.out.println("Answers provided: " + answers);
+    }
+}
