@@ -1,0 +1,38 @@
+package haonanjia;
+
+public class Book extends ReadingMaterial
+{
+    protected String author;
+
+ 
+    public Book(String thisTitle, String isbnNum, String auth)
+    {
+        super(thisTitle, isbnNum);
+        author = auth;
+    }
+
+
+    public void setAuthor(String auth)
+    {
+        author = auth;
+    }
+
+
+    public String getAuthor()
+    {
+        return author;
+    }
+
+    
+    public String toString()
+    {
+        return super.toString() + "\t" + author;
+    }
+
+
+    public void content()
+    {
+        super.content();
+        System.out.println("Author: " + author);
+    }
+}
