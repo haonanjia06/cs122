@@ -1,0 +1,49 @@
+package haonanjia;
+
+public class ReadingMaterial
+{
+    protected String title, isbn;
+
+
+    public ReadingMaterial(String thisTitle, String isbnNum)
+    {
+        title = thisTitle;
+        isbn = isbnNum;
+    }
+
+   
+    public void setTitle(String thisTitle)
+    {
+        title = thisTitle;
+    }
+
+   
+    public void setISBN(String isbnNum)
+    {
+        isbn = isbnNum;
+    }
+
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+
+    public String getISBN()
+    {
+        return isbn;
+    }
+
+  
+    public String toString()
+    {
+        return (title + "\t" + isbn);
+    }
+
+    public void content()
+    {
+        System.out.println("Title: " + title);
+        System.out.println("ISBN: " + isbn);
+    }
+}
