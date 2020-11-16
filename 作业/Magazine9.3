@@ -1,0 +1,39 @@
+package haonanjia;
+
+public class Magazine extends ReadingMaterial
+{
+    protected String editor;
+
+
+    public Magazine(String thisTitle, String isbnNum, String ed)
+    {
+        super(thisTitle, isbnNum);
+        editor = ed;
+    }
+
+    public void setEditor(String ed)
+    {
+        editor = ed;
+    }
+
+
+    public String getEditor()
+    {
+        return editor;
+    }
+
+ 
+    public String toString()
+    {
+        String result = super.toString();
+        result += "\t" + editor;
+        return result;
+    }
+
+
+    public void content()
+    {
+        super.content();
+        System.out.println("Editor: " + editor);
+    }
+}
