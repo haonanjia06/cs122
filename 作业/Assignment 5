@@ -1,0 +1,101 @@
+package haonanjia
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+
+public class Mainf extends JFrame{
+	private JCheckBox chckbxNewCheckBox;
+	private JCheckBox checkBox;
+	private JCheckBox chckbxTimes;
+	private JCheckBox chckbxCourier;
+	private JCheckBox chckbxYellow;
+	private JCheckBox chckbxWhite;
+	public Mainf() {
+		getContentPane().setBackground(Color.BLACK);
+		
+		// TODO Auto-generated constructor stub
+		this.setSize(600, 600);
+		getContentPane().setLayout(null);
+		this.setBackground(Color.red);
+		JLabel t1 = new JLabel("this is a test");
+		t1.setFont(new Font("瀹嬩綋", Font.PLAIN, 30));
+		t1.setHorizontalAlignment(SwingConstants.CENTER);
+		t1.setBounds(140, 50, 316, 68);
+		getContentPane().add(t1);
+		
+		chckbxNewCheckBox = new JCheckBox("24");
+		chckbxNewCheckBox.setBackground(Color.LIGHT_GRAY);
+		chckbxNewCheckBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t1.setText("this is a 24");
+			}
+		});
+		chckbxNewCheckBox.setBounds(64, 145, 173, 36);
+		getContentPane().add(chckbxNewCheckBox);
+		
+		checkBox = new JCheckBox("60");
+		checkBox.setBackground(Color.LIGHT_GRAY);
+		checkBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t1.setText("this is a 60");
+			}
+		});
+		checkBox.setBounds(267, 145, 173, 36);
+		getContentPane().add(checkBox);
+		
+		chckbxTimes = new JCheckBox("Times");
+		chckbxTimes.setBackground(Color.LIGHT_GRAY);
+		chckbxTimes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t1.setText("this is a Times");
+			}
+		});
+		chckbxTimes.setBounds(64, 212, 173, 36);
+		getContentPane().add(chckbxTimes);
+		
+		chckbxCourier = new JCheckBox("Courier");
+		chckbxCourier.setBackground(Color.LIGHT_GRAY);
+		chckbxCourier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t1.setText("this is a Courier");
+			}
+		});
+		chckbxCourier.setBounds(267, 212, 173, 36);
+		getContentPane().add(chckbxCourier);
+		
+		chckbxYellow = new JCheckBox("Yellow");
+		chckbxYellow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().setBackground(Color.yellow);
+				
+			}
+		});
+		chckbxYellow.setBackground(Color.LIGHT_GRAY);
+		chckbxYellow.setBounds(64, 304, 173, 36);
+		getContentPane().add(chckbxYellow);
+		
+		chckbxWhite = new JCheckBox("White");
+		chckbxWhite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().setBackground(Color.white);
+			}
+		});
+		chckbxWhite.setBackground(Color.LIGHT_GRAY);
+		chckbxWhite.setBounds(267, 304, 173, 36);
+		getContentPane().add(chckbxWhite);
+		this.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new Mainf();
+	}
+}
