@@ -1,0 +1,22 @@
+package haonanjia;
+
+
+public class SpeakerTest
+{
+    
+    public static void main(String[] args)
+    {
+        Speaker rover, aristotle;
+
+        rover = new Dog("Rover");
+        rover.speak();
+        rover.announce("Arf");
+
+        aristotle = new Philosopher("Aristotle", "A true friend is one "
+                + "soul in two bodies.");
+        aristotle.speak();
+        aristotle.announce("All men by nature desire to know.");
+
+        ((Philosopher)aristotle).pontificate();  // must be cast as Philosopher
+    }
+}
