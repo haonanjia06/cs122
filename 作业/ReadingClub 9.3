@@ -1,0 +1,34 @@
+package haonanjia;
+
+public class ReadingClub
+{
+  
+    public static void main(String[] args)
+    {
+        ReadingMaterial[] rm = new ReadingMaterial[5];
+
+        rm[0] = new ReadingMaterial("Myst Strategy", "0-7615-0807-4");
+
+        rm[1] = new Book("Great Eskimo Vocabulary Hoax, The",
+                "0-226-68534-9", "Pullum, Geoffrey");
+
+        rm[2] = new TextBook("Java Software Solutions",
+                "0-321-40949-3", "Lewis, John and William Loftus",
+                true);
+
+        String[] names = { "Hazel", "Fiver", "Bigwig",
+                "Blackberry", "Dandelion" };
+
+        rm[3] = new Novel("Watership Down", "0-380-00293-0",
+                "Adams, Richard", names);
+
+        rm[4] = new Magazine("ACM Crossroads", "0-234-5678-0",
+                "Perry, Lynellen and others");
+
+        for (int index = 0; index < rm.length; index++)
+        {
+            rm[index].content();
+            System.out.println();
+        }
+    }
+}
