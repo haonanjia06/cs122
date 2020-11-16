@@ -1,0 +1,80 @@
+package haonanjia;
+public class PalindromeEvaluator
+{
+    private String testString;
+
+
+    public PalindromeEvaluator(String test)
+    {
+        testString = convertString(test);
+    }
+
+    private String convertString(String str)
+    {
+        String str2 = "";
+
+        str = str.toLowerCase();
+
+        for (int i=0; i < str.length(); i++)
+            if (Character.isLetterOrDigit(str.charAt(i)))
+                str2 += str.charAt(i);
+
+        return str2;
+    }
+
+
+    public boolean isPalindrome()
+    {
+        return testPalindrome(0, testString.length()-1);
+    }
+
+ 
+    private boolean testPalindrome(int startIndex, int endIndex)
+    {
+        boolean result;
+
+        if (endIndex == startIndex || endIndex < startIndex)  // base case
+            result = true;
+        else
+            if (testString.charAt(startIndex) == testString.charAt(endIndex))
+                result = testPalindrome(startIndex + 1, endIndex - 1);
+            else
+                result = false;
+
+        return result;
+    }
+}
+
+
+2.	package haonanjia;
+
+
+import java.util.Scanner;
+
+public class PalindromeTester
+{
+
+    public static void main(String args[]) 
+    {
+        String str, another = "y";
+
+        Scanner scan = new Scanner(System.in);
+
+        while (another.equalsIgnoreCase("y"))
+        {
+            System.out.println("Enter a potential palindrome:");
+            str = scan.nextLine();
+
+            PalindromeEvaluator test = new PalindromeEvaluator (str);
+
+            if (test.isPalindrome())
+                System.out.println("That string IS a palindrome.");
+            else
+                System.out.println("That string is NOT a palindrome.");
+
+            System.out.println();
+            System.out.print("Test another palindrome (y/n)? ");
+            another = scan.nextLine();
+        }
+    }
+}
