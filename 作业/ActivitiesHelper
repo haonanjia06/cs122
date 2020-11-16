@@ -1,0 +1,11 @@
+package haonanjia;
+
+public class ActivitiesHelper {
+	
+	public static void main(String[] args) {
+		Activities anc=new Activities();
+		anc.printActivity();
+		System.out.println(Activities.getOddHours());
+		
+	}
+}
