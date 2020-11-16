@@ -1,0 +1,39 @@
+package haonanjia;
+
+public class Executive3 extends Employee3
+{
+    private double bonus;
+    private int extraVacation;
+
+   
+    public Executive3(String eName, String eAddress, String ePhone,
+            String socSecNumber, double rate, int vDays)
+    {
+        super(eName, eAddress, ePhone, socSecNumber, rate);
+
+        bonus = 0;  // bonus has yet to be awarded
+        extraVacation = vDays;  // extra vacation days
+    }
+
+   
+    public void awardBonus(double execBonus)
+    {
+        bonus = execBonus;
+    }
+
+ 
+    public double pay()
+    {
+        double payment = super.pay() + bonus;
+
+        bonus = 0;
+
+        return payment;
+    }
+
+  
+    public int vacation()
+    {
+        return STANDARD_VACATION + extraVacation;
+    }
+}
