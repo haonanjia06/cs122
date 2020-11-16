@@ -1,0 +1,38 @@
+package haonanjia;
+public class FootballStats extends PlayerStats
+{
+    protected int yards;
+
+
+    public FootballStats(String player, String team)
+    {
+        super(player, team);
+        yards = 0;
+    }
+
+
+    public void score()
+    {
+        score += 6;
+    }
+
+
+    public void gainYards(int numYards)
+    {
+        yards += numYards;
+    }
+
+
+    public int getYards()
+    {
+        return yards;
+    }
+
+
+    public String toString()
+    {
+        String result = super.toString();
+        result += "\nYards: " + yards;
+        return result;
+    }
+}
