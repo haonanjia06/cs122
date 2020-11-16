@@ -1,0 +1,25 @@
+package haonanjia;
+
+public class Activities {
+	String activityName;
+	static int suggestedHours;
+	String locationType;
+public Activities() {
+	activityName="lisa";
+	suggestedHours=2;
+	locationType="per";
+	
+	
+}
+public static void printActivity() {
+	String activityPreferred="I prefer<activityPreferred> over activityName ";
+	System.out.println(activityPreferred);
+}
+public static boolean getOddHours() {
+	if (suggestedHours%2==0) {
+		return true;
+	}else {
+		return false;
+	}
+}
+}
