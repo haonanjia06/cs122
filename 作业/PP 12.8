@@ -1,0 +1,77 @@
+package haonanjia;
+
+import java.util.Scanner;
+
+public class PascalsTriangle
+{
+  
+    public static void main(String args[]) 
+    {
+        String another = "y";
+        Scanner scan = new Scanner(System.in);
+
+        while (another.equalsIgnoreCase("y"))
+        {
+            System.out.print("Which line number of Pascal's Triangle? ");
+            int row = scan.nextInt();
+            String flush = scan.nextLine();
+
+            PascalsTriangleGenerator p = new PascalsTriangleGenerator();
+            int[] result = p.computeRow(row);
+
+            System.out.println("Line " + row + " of Pascal's Triangle:");
+            for (int num : result)
+                System.out.print(num + " ");   
+
+            System.out.print("\nAnother (y/n)? ");
+            another = scan.nextLine();
+        }     
+    }
+}
+
+
+package haonanjia;
+
+
+import java.util.Scanner;
+
+public class PascalsTriangleGenerator
+{    
+    private int[] row1, row2;
+
+    public PascalsTriangleGenerator()
+    {
+        row1 = new int[1];
+        row1[0] = 1;
+        
+        row2 = new int[2];
+        row2[0] = 1;
+        row2[1] = 1;
+    }
+
+
+    public int[] computeRow(int rowToCompute)
+    {
+        if (rowToCompute == 1) 
+            return row1;
+        else if (rowToCompute == 2) 
+            return row2;
+        else
+            return (computeNextRow(computeRow(rowToCompute - 1)));
+    }
+    
+  
+    public int[] computeNextRow(int[] previousRow)
+    {
+      
+        int[] nextRow = new int[previousRow.length + 1];
+        
+        nextRow[0] = 1;  
+
+        for (int i = 1; i < previousRow.length; i++)
+            nextRow[i] = previousRow[i - 1] + previousRow[i];
+
+        nextRow[previousRow.length] = 1;
+        return nextRow;
+    }
+}
