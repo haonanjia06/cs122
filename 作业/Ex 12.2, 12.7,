@@ -1,0 +1,14 @@
+EX12.2：
+x 1 = x x y = x + xy-1 for y > 1
+
+
+
+EX12.7：
+public String reverse(String text) 
+{ 
+String result = text; 
+if (text.length() > 1) 
+result = text.charAt(text.length()-1) 
++ reverse(text.substring(0, text.length()-1)); 
+return result; 
+}
