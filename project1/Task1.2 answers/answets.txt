@@ -1,0 +1,56 @@
+Q2.
+expected_latency_h1_h4 = latency_L1 + latency_L2 + latency_L3 = 40m + 10ms + 30ms = 80ms
+expected_throughput_h1_h4 = min(throughput_L1, throughput_L2, throughput_L3) = min(20, 40, 30) = 20Mbps
+
+avergae RTT: 172.566ms
+measured trhoughput: sent=53876 KB rate=21.493 Mbps
+
+Explain: the prediction looks correct. 
+
+
+Q3:
+(1)For two pairs:
+expected_latency = latency_L1 + latency_L2 + latency_L3 = 80ms
+expected_throughput = min(throughput_L1, throughput_L2, throughput_L3)/2 = 10 Mbpps
+
+use h1-h4 and h7-h8 to do the two pairs simulation:
+h1-h4 average RTT = 163.021ms
+h1-h4 throughput: sent=15024.0 KB rate=6.3247 Mbps
+h7-h8 average RTT = 162.948ms
+h7-h8 throughput: sent=46784.0 KB rate=19.1945 Mbps
+
+Explain: the latency prediction looks correct. For the throughput, we can find that the second link takes the most bandwidth, rather than split it evenly with the other link. This may be caused by the traffic control strategy of the network.
+
+(2)For thress pairs:
+expected_latency = latency_L1 + latency_L2 + latency_L3 = 80ms
+expected_throughput = min(throughput_L1, throughput_L2, throughput_L3)/3 = 6.67 Mbpps
+
+use h1-h4, h7-h8, h9-h10 to measure:
+h1-h4 average RTT = 161.943ms
+h1-h4 throughput: sent=8632.0 KB rate=3.4258 Mbps
+h7-h8 average RTT = 161.056ms
+h7-h8 throughput: sent=12762.0 KB rate=5.0748 Mbps
+h9-h10 average RTT = 163.039ms
+h9-h10 throughput: sent=42519.0 KB rate=16.9986 Mbps
+    
+Explain: Like the two pairs simulation, the latency prediction looks correct. For the throughput, we can find that the last link takes the most bandwidth, rather than split it evenly with other links. This may be caused by the traffic control strategy of the network.
+
+	
+Q4:
+h1-h4 go through L1, L2, L3
+h5-h6 go through L4, L2, L5
+The two paths share the L2 link
+
+expected_latency_h1_h4 = latency_L1 + latency_L2 + latency_L3 = 80ms
+expected_throughput_h1_h4 = min(throughput_L1, throughput_L2 / 2, throughput_L3) = 20Mbps
+
+expected_latency_h5_h6 = latency_L4 + latency_L2 + latency_L5 = 20ms
+expected_throughput_h5_h6 = min(throughput_L4, throughput_L2 / 2, throughput_L5) = 20Mbps
+
+average RTT h1-h4: 162.341ms
+measured throughput h1-h4: sent=48002.0 KB rate=19.22 Mbps
+
+average RTT h1-h4: 42.536ms
+measured throughput h1-h4: sent=63192.0 KB rate=25.0768 Mbps
+
+Explain: The latency expedition is correct, and the thorough expedition is not. The two paths shares the L2 link, which has a BW of 40Mbps, more than other links. So, it may should be the bottleneck. For path1, the bottlenecl is L1, with BW at 20Mbps. And for path2, the bottleneck is L4 or L5, both with a BW of 25Mbps, which matches the measured result.
